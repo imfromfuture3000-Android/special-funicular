@@ -1,0 +1,13 @@
+name: 🚀 Deploy IEM
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Vault
+        run: npx hardhat deploy --network linea
+      - name: Activate AI
+        run: python copilot-instruction.py
